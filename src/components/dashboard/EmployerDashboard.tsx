@@ -54,7 +54,9 @@ const EmployerDashboard = () => {
       experience: "6 years",
       match: 94,
       skills: ["React", "TypeScript", "Node.js"],
-      availability: "Available now"
+      availability: "Available now",
+      matchedKeywords: ["React", "TypeScript", "Frontend Developer"],
+      candidateKeywords: ["React", "TypeScript", "Frontend Developer", "JavaScript", "CSS"]
     },
     {
       id: 2,
@@ -64,7 +66,9 @@ const EmployerDashboard = () => {
       experience: "5 years",
       match: 87,
       skills: ["React", "Python", "AWS"],
-      availability: "2 weeks notice"
+      availability: "2 weeks notice",
+      matchedKeywords: ["React", "Python"],
+      candidateKeywords: ["React", "Python", "AWS", "Docker", "PostgreSQL"]
     },
     {
       id: 3,
@@ -74,7 +78,9 @@ const EmployerDashboard = () => {
       experience: "4 years",
       match: 82,
       skills: ["Vue.js", "JavaScript", "CSS"],
-      availability: "Available now"
+      availability: "Available now",
+      matchedKeywords: ["JavaScript", "Frontend Developer"],
+      candidateKeywords: ["Vue.js", "JavaScript", "CSS", "HTML", "Sass"]
     }
   ];
 
@@ -334,16 +340,42 @@ const EmployerDashboard = () => {
                             </Badge>
                           ))}
                         </div>
+                        
+                        {/* Keyword Match Display */}
+                        <div className="mt-3">
+                          <div className="flex flex-wrap gap-1 mb-2">
+                            <span className="text-xs text-muted-foreground">Matched:</span>
+                            {candidate.matchedKeywords.map((keyword, idx) => (
+                              <Badge key={idx} variant="secondary" className="text-xs bg-green-100 text-green-700">
+                                {keyword}
+                              </Badge>
+                            ))}
+                          </div>
+                          <div className="flex flex-wrap gap-1">
+                            <span className="text-xs text-muted-foreground">Additional skills:</span>
+                            {candidate.candidateKeywords.filter(k => !candidate.matchedKeywords.includes(k)).map((keyword, idx) => (
+                              <Badge key={idx} variant="outline" className="text-xs">
+                                {keyword}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                       
                       <div className="flex items-center gap-3">
                         <Button variant="outline" size="sm">
                           <Star className="w-4 h-4" />
                         </Button>
-                        <Button variant="hero" size="sm">
-                          <MessageSquare className="w-4 h-4 mr-2" />
-                          Contact
-                        </Button>
+                        {candidate.match >= 80 ? (
+                          <Button variant="hero" size="sm">
+                            <MessageSquare className="w-4 h-4 mr-2" />
+                            Send Message Request
+                          </Button>
+                        ) : (
+                          <Button variant="outline" size="sm" disabled>
+                            Low Match ({candidate.match}%)
+                          </Button>
+                        )}
                       </div>
                     </div>
                   </Card>

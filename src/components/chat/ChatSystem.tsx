@@ -21,7 +21,9 @@ const ChatSystem = () => {
       time: "2 min ago",
       unread: 2,
       requestStatus: "pending",
-      jobTitle: "Senior Frontend Developer"
+      jobTitle: "Senior Frontend Developer",
+      matchPercentage: 94,
+      canMessage: true
     },
     {
       id: 2,
@@ -33,7 +35,9 @@ const ChatSystem = () => {
       time: "1 hour ago",
       unread: 0,
       requestStatus: "accepted",
-      jobTitle: "React Developer Position"
+      jobTitle: "React Developer Position",
+      matchPercentage: 87,
+      canMessage: true
     },
     {
       id: 3,
@@ -45,7 +49,9 @@ const ChatSystem = () => {
       time: "3 hours ago",
       unread: 1,
       requestStatus: "none",
-      jobTitle: "Full Stack Engineer"
+      jobTitle: "Full Stack Engineer",
+      matchPercentage: 65,
+      canMessage: false // Low match, no messaging allowed
     }
   ];
 
@@ -81,7 +87,8 @@ const ChatSystem = () => {
   ];
 
   const handleSendMessage = () => {
-    if (newMessage.trim()) {
+    const activeConversation = conversations.find(c => c.id === activeChat);
+    if (newMessage.trim() && activeConversation?.canMessage) {
       // Handle sending message logic here
       setNewMessage("");
     }
@@ -91,6 +98,9 @@ const ChatSystem = () => {
     // Handle connection request logic here
     console.log(`${action} request for conversation ${conversationId}`);
   };
+
+  // Get active conversation for messaging validation
+  const activeConversation = conversations.find(c => c.id === activeChat);
 
   return (
     <div className="min-h-screen bg-secondary/30 pt-20">
@@ -137,8 +147,25 @@ const ChatSystem = () => {
                         </div>
                       </div>
                       
-                      <p className="text-sm text-muted-foreground mb-1">{conversation.jobTitle}</p>
+                      <p className="text-sm text-muted-foreground mb-1">
+                        {conversation.jobTitle} • {conversation.matchPercentage}% Match
+                      </p>
                       <p className="text-sm text-muted-foreground truncate">{conversation.lastMessage}</p>
+                      
+                      {/* Match Status Indicator */}
+                      <div className="flex items-center gap-2 mt-1">
+                        <Badge 
+                          variant={conversation.matchPercentage >= 80 ? "secondary" : "outline"} 
+                          className={`text-xs ${conversation.matchPercentage >= 80 ? 'bg-green-100 text-green-700' : ''}`}
+                        >
+                          {conversation.matchPercentage}% Match
+                        </Badge>
+                        {!conversation.canMessage && (
+                          <Badge variant="destructive" className="text-xs">
+                            Low Match - No Messaging
+                          </Badge>
+                        )}
+                      </div>
                       
                       {/* Connection Request Status */}
                       {conversation.requestStatus === "pending" && (
@@ -240,28 +267,40 @@ const ChatSystem = () => {
 
                 {/* Message Input */}
                 <div className="p-4 border-t border-border">
-                  <div className="flex gap-2">
-                    <Textarea
-                      placeholder="Type your message..."
-                      value={newMessage}
-                      onChange={(e) => setNewMessage(e.target.value)}
-                      onKeyPress={(e) => {
-                        if (e.key === 'Enter' && !e.shiftKey) {
-                          e.preventDefault();
-                          handleSendMessage();
+                  {activeConversation && activeConversation.canMessage ? (
+                    <div className="flex gap-2">
+                      <Textarea
+                        placeholder="Type your message..."
+                        value={newMessage}
+                        onChange={(e) => setNewMessage(e.target.value)}
+                        onKeyPress={(e) => {
+                          if (e.key === 'Enter' && !e.shiftKey) {
+                            e.preventDefault();
+                            handleSendMessage();
+                          }
+                        }}
+                        className="min-h-[60px] resize-none"
+                      />
+                      <Button
+                        variant="hero"
+                        size="sm"
+                        onClick={handleSendMessage}
+                        disabled={!newMessage.trim()}
+                      >
+                        <Send className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  ) : (
+                    <div className="text-center py-4 bg-muted/50 rounded-lg">
+                      <MessageSquare className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
+                      <p className="text-sm text-muted-foreground">
+                        {activeConversation?.matchPercentage && activeConversation.matchPercentage < 80 
+                          ? `Match too low (${activeConversation.matchPercentage}%) - Messaging not available`
+                          : 'Messaging not available'
                         }
-                      }}
-                      className="min-h-[60px] resize-none"
-                    />
-                    <Button
-                      variant="hero"
-                      size="sm"
-                      onClick={handleSendMessage}
-                      disabled={!newMessage.trim()}
-                    >
-                      <Send className="w-4 h-4" />
-                    </Button>
-                  </div>
+                      </p>
+                    </div>
+                  )}
                 </div>
               </Card>
             ) : (

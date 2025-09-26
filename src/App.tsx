@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import JobSeekerDashboard from "./pages/JobSeekerDashboard";
 import EmployerDashboard from "./pages/EmployerDashboard";
+import ResumeBuilder from "./pages/ResumeBuilder";
+import JobPostingForm from "./pages/JobPostingForm";
 import Chat from "./pages/Chat";
 import NotFound from "./pages/NotFound";
 
@@ -21,6 +23,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/job-seeker-dashboard" element={<JobSeekerDashboard />} />
           <Route path="/employer-dashboard" element={<EmployerDashboard />} />
+          <Route path="/resume-builder" element={<ResumeBuilder />} />
+          <Route path="/job-posting" element={<JobPostingForm />} />
           <Route path="/chat" element={<Chat />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

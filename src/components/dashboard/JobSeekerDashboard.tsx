@@ -19,7 +19,9 @@ const JobSeekerDashboard = () => {
       match: 92,
       type: "Full-time",
       posted: "2 days ago",
-      saved: false
+      saved: false,
+      matchedKeywords: ["React", "TypeScript", "Frontend Developer"],
+      requiredKeywords: ["React", "TypeScript", "Frontend Developer", "JavaScript"]
     },
     {
       id: 2,
@@ -30,7 +32,9 @@ const JobSeekerDashboard = () => {
       match: 87,
       type: "Full-time",
       posted: "1 week ago",
-      saved: true
+      saved: true,
+      matchedKeywords: ["React", "JavaScript"],
+      requiredKeywords: ["React", "JavaScript", "Node.js"]
     },
     {
       id: 3,
@@ -41,7 +45,9 @@ const JobSeekerDashboard = () => {
       match: 78,
       type: "Contract",
       posted: "3 days ago",
-      saved: false
+      saved: false,
+      matchedKeywords: ["JavaScript", "Node.js"],
+      requiredKeywords: ["JavaScript", "Node.js", "React", "MongoDB"]
     }
   ];
 
@@ -251,13 +257,39 @@ const JobSeekerDashboard = () => {
                           <Badge variant="outline">{job.type}</Badge>
                           <span className="text-sm font-medium text-foreground">{job.salary}</span>
                         </div>
+                        
+                        {/* Keyword Match Display */}
+                        <div className="mt-3">
+                          <div className="flex flex-wrap gap-1 mb-2">
+                            <span className="text-xs text-muted-foreground">Matched:</span>
+                            {job.matchedKeywords.map((keyword, idx) => (
+                              <Badge key={idx} variant="secondary" className="text-xs bg-green-100 text-green-700">
+                                {keyword}
+                              </Badge>
+                            ))}
+                          </div>
+                          <div className="flex flex-wrap gap-1">
+                            <span className="text-xs text-muted-foreground">Missing:</span>
+                            {job.requiredKeywords.filter(k => !job.matchedKeywords.includes(k)).map((keyword, idx) => (
+                              <Badge key={idx} variant="outline" className="text-xs">
+                                {keyword}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                       
                       <div className="flex items-center gap-3">
                         <Button variant="outline" size="sm">
                           <Heart className={`w-4 h-4 ${job.saved ? 'fill-current text-red-500' : ''}`} />
                         </Button>
-                        <Button variant="hero" size="sm">Apply Now</Button>
+                        {job.match >= 80 ? (
+                          <Button variant="hero" size="sm">Apply Now</Button>
+                        ) : (
+                          <Button variant="outline" size="sm" disabled>
+                            Low Match ({job.match}%)
+                          </Button>
+                        )}
                       </div>
                     </div>
                   </Card>
