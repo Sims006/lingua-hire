@@ -150,6 +150,190 @@ export type Database = {
           },
         ]
       }
+      conversations: {
+        Row: {
+          created_at: string
+          employer_id: string
+          id: string
+          job_id: string | null
+          job_seeker_id: string
+          last_message_at: string | null
+          status: string | null
+        }
+        Insert: {
+          created_at?: string
+          employer_id: string
+          id?: string
+          job_id?: string | null
+          job_seeker_id: string
+          last_message_at?: string | null
+          status?: string | null
+        }
+        Update: {
+          created_at?: string
+          employer_id?: string
+          id?: string
+          job_id?: string | null
+          job_seeker_id?: string
+          last_message_at?: string | null
+          status?: string | null
+        }
+        Relationships: []
+      }
+      job_applications: {
+        Row: {
+          applicant_id: string
+          applied_at: string
+          cover_letter: string | null
+          id: string
+          job_id: string
+          match_percentage: number | null
+          resume_url: string | null
+          status: string | null
+          updated_at: string
+        }
+        Insert: {
+          applicant_id: string
+          applied_at?: string
+          cover_letter?: string | null
+          id?: string
+          job_id: string
+          match_percentage?: number | null
+          resume_url?: string | null
+          status?: string | null
+          updated_at?: string
+        }
+        Update: {
+          applicant_id?: string
+          applied_at?: string
+          cover_letter?: string | null
+          id?: string
+          job_id?: string
+          match_percentage?: number | null
+          resume_url?: string | null
+          status?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fk_job_applications_job_id"
+            columns: ["job_id"]
+            isOneToOne: false
+            referencedRelation: "jobs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      job_matches: {
+        Row: {
+          created_at: string
+          id: string
+          is_hidden: boolean | null
+          is_saved: boolean | null
+          job_id: string
+          job_seeker_id: string
+          match_percentage: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_hidden?: boolean | null
+          is_saved?: boolean | null
+          job_id: string
+          job_seeker_id: string
+          match_percentage?: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_hidden?: boolean | null
+          is_saved?: boolean | null
+          job_id?: string
+          job_seeker_id?: string
+          match_percentage?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fk_job_matches_job_id"
+            columns: ["job_id"]
+            isOneToOne: false
+            referencedRelation: "jobs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      jobs: {
+        Row: {
+          applications_count: number | null
+          company: string
+          created_at: string
+          description: string
+          employer_id: string
+          experience_level: string | null
+          expires_at: string | null
+          id: string
+          is_remote: boolean | null
+          is_urgent: boolean | null
+          job_type: string
+          location: string
+          optional_skills: string[] | null
+          required_skills: string[] | null
+          salary_currency: string | null
+          salary_max: number | null
+          salary_min: number | null
+          status: string | null
+          title: string
+          updated_at: string
+          views_count: number | null
+        }
+        Insert: {
+          applications_count?: number | null
+          company: string
+          created_at?: string
+          description: string
+          employer_id: string
+          experience_level?: string | null
+          expires_at?: string | null
+          id?: string
+          is_remote?: boolean | null
+          is_urgent?: boolean | null
+          job_type: string
+          location: string
+          optional_skills?: string[] | null
+          required_skills?: string[] | null
+          salary_currency?: string | null
+          salary_max?: number | null
+          salary_min?: number | null
+          status?: string | null
+          title: string
+          updated_at?: string
+          views_count?: number | null
+        }
+        Update: {
+          applications_count?: number | null
+          company?: string
+          created_at?: string
+          description?: string
+          employer_id?: string
+          experience_level?: string | null
+          expires_at?: string | null
+          id?: string
+          is_remote?: boolean | null
+          is_urgent?: boolean | null
+          job_type?: string
+          location?: string
+          optional_skills?: string[] | null
+          required_skills?: string[] | null
+          salary_currency?: string | null
+          salary_max?: number | null
+          salary_min?: number | null
+          status?: string | null
+          title?: string
+          updated_at?: string
+          views_count?: number | null
+        }
+        Relationships: []
+      }
       keyword_management: {
         Row: {
           admin_id: string | null
@@ -190,6 +374,116 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      messages: {
+        Row: {
+          content: string
+          conversation_id: string
+          created_at: string
+          id: string
+          is_read: boolean | null
+          recipient_id: string
+          sender_id: string
+        }
+        Insert: {
+          content: string
+          conversation_id: string
+          created_at?: string
+          id?: string
+          is_read?: boolean | null
+          recipient_id: string
+          sender_id: string
+        }
+        Update: {
+          content?: string
+          conversation_id?: string
+          created_at?: string
+          id?: string
+          is_read?: boolean | null
+          recipient_id?: string
+          sender_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fk_messages_conversation_id"
+            columns: ["conversation_id"]
+            isOneToOne: false
+            referencedRelation: "conversations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          bio: string | null
+          company_name: string | null
+          company_size: string | null
+          created_at: string
+          email: string
+          experience_years: number | null
+          full_name: string | null
+          id: string
+          is_available: boolean | null
+          job_title: string | null
+          location: string | null
+          preferred_job_types: string[] | null
+          resume_url: string | null
+          salary_expectation_max: number | null
+          salary_expectation_min: number | null
+          skills: string[] | null
+          updated_at: string
+          user_id: string
+          user_type: string
+          website_url: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          bio?: string | null
+          company_name?: string | null
+          company_size?: string | null
+          created_at?: string
+          email: string
+          experience_years?: number | null
+          full_name?: string | null
+          id?: string
+          is_available?: boolean | null
+          job_title?: string | null
+          location?: string | null
+          preferred_job_types?: string[] | null
+          resume_url?: string | null
+          salary_expectation_max?: number | null
+          salary_expectation_min?: number | null
+          skills?: string[] | null
+          updated_at?: string
+          user_id: string
+          user_type: string
+          website_url?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          bio?: string | null
+          company_name?: string | null
+          company_size?: string | null
+          created_at?: string
+          email?: string
+          experience_years?: number | null
+          full_name?: string | null
+          id?: string
+          is_available?: boolean | null
+          job_title?: string | null
+          location?: string | null
+          preferred_job_types?: string[] | null
+          resume_url?: string | null
+          salary_expectation_max?: number | null
+          salary_expectation_min?: number | null
+          skills?: string[] | null
+          updated_at?: string
+          user_id?: string
+          user_type?: string
+          website_url?: string | null
+        }
+        Relationships: []
       }
       user_management: {
         Row: {

@@ -2,58 +2,43 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Clock, DollarSign, Building, Users, Bookmark } from "lucide-react";
+import { useJobs } from "@/hooks/useJobs";
 
 const JobListings = () => {
-  const featuredJobs = [
-    {
-      id: 1,
-      title: "Senior Full Stack Developer",
-      company: "TechGlobal Inc.",
-      location: "Remote • Global",
-      type: "Full-time",
-      salary: "$80k - $120k",
-      posted: "2 days ago",
-      skills: ["React", "Node.js", "TypeScript"],
-      applicants: 47,
-      isUrgent: true,
-    },
-    {
-      id: 2,
-      title: "UX/UI Designer",
-      company: "Design Studios",
-      location: "London, UK",
-      type: "Contract",
-      salary: "£45k - £65k",
-      posted: "1 day ago",
-      skills: ["Figma", "Sketch", "Prototyping"],
-      applicants: 23,
-      isUrgent: false,
-    },
-    {
-      id: 3,
-      title: "Marketing Manager",
-      company: "Global Marketing Co.",
-      location: "New York, NY",
-      type: "Full-time",
-      salary: "$70k - $90k",
-      posted: "3 days ago",
-      skills: ["Digital Marketing", "SEO", "Analytics"],
-      applicants: 34,
-      isUrgent: false,
-    },
-    {
-      id: 4,
-      title: "Data Scientist",
-      company: "AI Innovations",
-      location: "Remote • Europe",
-      type: "Full-time",
-      salary: "€60k - €85k",
-      posted: "1 day ago",
-      skills: ["Python", "Machine Learning", "SQL"],
-      applicants: 56,
-      isUrgent: true,
-    },
-  ];
+  const { jobs, loading, error } = useJobs();
+
+  if (loading) {
+    return (
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="text-xl">Loading job opportunities...</div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="text-xl text-destructive">Error loading jobs: {error}</div>
+        </div>
+      </section>
+    );
+  }
+
+  const featuredJobs = jobs.slice(0, 4).map(job => ({
+    id: job.id,
+    title: job.title,
+    company: job.company,
+    location: job.location,
+    type: job.job_type.charAt(0).toUpperCase() + job.job_type.slice(1).replace('-', ' '),
+    salary: `${job.salary_currency === 'USD' ? '$' : job.salary_currency === 'GBP' ? '£' : '€'}${Math.round(job.salary_min / 1000)}k - ${Math.round(job.salary_max / 1000)}k`,
+    posted: job.posted_ago || "Recently",
+    skills: job.required_skills?.slice(0, 3) || [],
+    applicants: job.applications_count,
+    isUrgent: job.is_urgent,
+  }));
 
   return (
     <section className="py-16 bg-background">
@@ -147,7 +132,7 @@ const JobListings = () => {
         {/* View All Jobs Button */}
         <div className="text-center">
           <Button variant="hero" size="lg" className="px-8">
-            View All Jobs ({(Math.random() * 50000 + 10000).toFixed(0).toLocaleString()})
+            View All Jobs ({jobs.length > 0 ? jobs.length.toLocaleString() : '0'})
           </Button>
         </div>
       </div>

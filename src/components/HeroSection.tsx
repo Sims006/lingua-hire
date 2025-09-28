@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Search, MapPin, Users, Building, Globe } from "lucide-react";
+import { Users, Building, Globe } from "lucide-react";
 import heroImage from "@/assets/hero-recruitment.jpg";
+import SearchJobsForm from "./SearchJobsForm";
 
 const HeroSection = () => {
   const stats = [
@@ -40,25 +40,7 @@ const HeroSection = () => {
 
           {/* Search Bar */}
           <div className="bg-white rounded-2xl p-6 shadow-strong mb-12 max-w-3xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
-                <Input
-                  placeholder="Job title or skills"
-                  className="pl-10 h-12 border-0 bg-secondary/50 focus:bg-white transition-colors"
-                />
-              </div>
-              <div className="relative">
-                <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
-                <Input
-                  placeholder="Location or remote"
-                  className="pl-10 h-12 border-0 bg-secondary/50 focus:bg-white transition-colors"
-                />
-              </div>
-              <Button variant="hero" size="lg" className="h-12 w-full">
-                Search Jobs
-              </Button>
-            </div>
+            <SearchJobsForm />
           </div>
 
           {/* Action Buttons */}
