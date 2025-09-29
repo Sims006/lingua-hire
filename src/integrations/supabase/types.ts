@@ -531,6 +531,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      increment_job_views: {
+        Args: { job_id: string }
+        Returns: undefined
+      }
       is_admin: {
         Args: { session_token: string }
         Returns: boolean
