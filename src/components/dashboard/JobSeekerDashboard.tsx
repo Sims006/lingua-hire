@@ -5,6 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
 import { Bell, FileText, Search, Heart, MessageSquare, Star, MapPin, Building2, Clock, Edit } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const JobSeekerDashboard = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -58,8 +60,10 @@ const JobSeekerDashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-secondary/30 pt-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen bg-background">
+      <Header />
+      <div className="min-h-screen bg-secondary/30 pt-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
           <div>
@@ -317,7 +321,9 @@ const JobSeekerDashboard = () => {
             </Card>
           </TabsContent>
         </Tabs>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };

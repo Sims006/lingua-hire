@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Globe, Menu, X, Users, Briefcase, User } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,27 +14,27 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center">
               <Globe className="w-6 h-6 text-white" />
             </div>
             <span className="text-xl font-bold text-primary">GlobalJobs</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#jobs" className="text-foreground hover:text-primary transition-colors">
+            <Link to="/#jobs" className="text-foreground hover:text-primary transition-colors">
               Find Jobs
-            </a>
-            <a href="#talent" className="text-foreground hover:text-primary transition-colors">
+            </Link>
+            <Link to="/#talent" className="text-foreground hover:text-primary transition-colors">
               Find Talent
-            </a>
-            <a href="#companies" className="text-foreground hover:text-primary transition-colors">
+            </Link>
+            <Link to="/#companies" className="text-foreground hover:text-primary transition-colors">
               Companies
-            </a>
-            <a href="#resources" className="text-foreground hover:text-primary transition-colors">
+            </Link>
+            <Link to="/#resources" className="text-foreground hover:text-primary transition-colors">
               Resources
-            </a>
+            </Link>
           </nav>
 
           {/* Right Side Actions */}
@@ -55,14 +56,18 @@ const Header = () => {
             </div>
 
             {/* Role Selection Buttons */}
-            <Button variant="ghost" size="sm" className="space-x-2">
-              <User className="w-4 h-4" />
-              <span>Job Seeker</span>
-            </Button>
-            <Button variant="professional" size="sm" className="space-x-2">
-              <Briefcase className="w-4 h-4" />
-              <span>Employer</span>
-            </Button>
+            <Link to="/job-seeker-dashboard">
+              <Button variant="ghost" size="sm" className="space-x-2">
+                <User className="w-4 h-4" />
+                <span>Job Seeker</span>
+              </Button>
+            </Link>
+            <Link to="/employer-dashboard">
+              <Button variant="professional" size="sm" className="space-x-2">
+                <Briefcase className="w-4 h-4" />
+                <span>Employer</span>
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -78,27 +83,31 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <nav className="flex flex-col space-y-4">
-              <a href="#jobs" className="text-foreground hover:text-primary transition-colors">
+              <Link to="/#jobs" className="text-foreground hover:text-primary transition-colors">
                 Find Jobs
-              </a>
-              <a href="#talent" className="text-foreground hover:text-primary transition-colors">
+              </Link>
+              <Link to="/#talent" className="text-foreground hover:text-primary transition-colors">
                 Find Talent
-              </a>
-              <a href="#companies" className="text-foreground hover:text-primary transition-colors">
+              </Link>
+              <Link to="/#companies" className="text-foreground hover:text-primary transition-colors">
                 Companies
-              </a>
-              <a href="#resources" className="text-foreground hover:text-primary transition-colors">
+              </Link>
+              <Link to="/#resources" className="text-foreground hover:text-primary transition-colors">
                 Resources
-              </a>
+              </Link>
               <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="ghost" size="sm" className="justify-start space-x-2">
-                  <User className="w-4 h-4" />
-                  <span>Job Seeker Login</span>
-                </Button>
-                <Button variant="professional" size="sm" className="justify-start space-x-2">
-                  <Briefcase className="w-4 h-4" />
-                  <span>Employer Login</span>
-                </Button>
+                <Link to="/job-seeker-dashboard">
+                  <Button variant="ghost" size="sm" className="justify-start space-x-2 w-full">
+                    <User className="w-4 h-4" />
+                    <span>Job Seeker Login</span>
+                  </Button>
+                </Link>
+                <Link to="/employer-dashboard">
+                  <Button variant="professional" size="sm" className="justify-start space-x-2 w-full">
+                    <Briefcase className="w-4 h-4" />
+                    <span>Employer Login</span>
+                  </Button>
+                </Link>
               </div>
             </nav>
           </div>
