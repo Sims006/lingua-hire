@@ -4,47 +4,47 @@ import { UserPlus, Search, MessageSquare, CheckCircle, Briefcase, FileText, User
 const HowItWorks = () => {
   const jobSeekerSteps = [
     {
-      icon: UserPlus,
-      title: "Create Your Profile",
-      description: "Sign up and build your profile in your native language. Our platform automatically translates it to 50+ languages.",
+      icon: FileText,
+      title: "Upload Your Resume",
+      description: "Register once by uploading your resume in any of 50+ languages. Our AI extracts your skills, experience, and qualifications.",
     },
     {
-      icon: Search,
-      title: "Search & Match",
-      description: "Browse jobs from around the world. Smart matching connects you with opportunities that fit your skills.",
-    },
-    {
-      icon: MessageSquare,
-      title: "Apply & Chat",
-      description: "Apply to jobs with one click. Communicate with employers in your language with automatic translation.",
+      icon: TrendingUp,
+      title: "AI Analysis",
+      description: "Our system analyzes your profile and automatically categorizes your skills, experience level, and job preferences.",
     },
     {
       icon: CheckCircle,
-      title: "Get Hired",
-      description: "Land your dream job with companies from around the globe, no language barriers.",
+      title: "Auto-Match",
+      description: "You're instantly matched with relevant job postings based on keywords, skills, and experience - no manual searching needed.",
+    },
+    {
+      icon: MessageSquare,
+      title: "Get Contacted",
+      description: "Employers see your match and reach out directly. All communication is translated automatically to your language.",
     },
   ];
 
   const employerSteps = [
     {
       icon: Briefcase,
-      title: "Post a Job",
-      description: "Create a job posting in your language. It's automatically translated and published globally.",
-    },
-    {
-      icon: Users,
-      title: "Find Candidates",
-      description: "Our AI matches your job with qualified candidates from 50+ countries, all in real-time.",
-    },
-    {
-      icon: FileText,
-      title: "Review Applications",
-      description: "View translated resumes and profiles. Communicate seamlessly with candidates worldwide.",
+      title: "Post Your Job",
+      description: "Submit your job requirements, including skills needed, experience level, and responsibilities. Posted in your language, translated automatically.",
     },
     {
       icon: TrendingUp,
-      title: "Hire Top Talent",
-      description: "Select the best candidate and grow your team with global talent.",
+      title: "AI Matching",
+      description: "Our system instantly analyzes your job posting and matches it with qualified candidates based on keywords and skill compatibility.",
+    },
+    {
+      icon: Users,
+      title: "Receive Matches",
+      description: "Get a curated list of matched candidates who meet your requirements - no need to browse thousands of resumes.",
+    },
+    {
+      icon: CheckCircle,
+      title: "Contact & Hire",
+      description: "Review matched profiles and contact candidates directly. All communication is automatically translated to both languages.",
     },
   ];
 
@@ -54,10 +54,10 @@ const HowItWorks = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            How It Works
+            Automatic Matching Process
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Connect globally in four simple steps, regardless of your language
+            Our AI does the work for you - no manual searching required
           </p>
         </div>
 
