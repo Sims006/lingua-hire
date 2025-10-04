@@ -18,22 +18,22 @@ const Header = () => {
             <div className="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center">
               <Globe className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-primary">GlobalJobs</span>
+            <span className="text-xl font-bold text-primary">글로벌잡스</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link to="/#jobs" className="text-foreground hover:text-primary transition-colors">
-              Find Jobs
+              채용공고
             </Link>
             <Link to="/#talent" className="text-foreground hover:text-primary transition-colors">
-              Find Talent
+              인재찾기
             </Link>
             <Link to="/#companies" className="text-foreground hover:text-primary transition-colors">
-              Companies
+              기업정보
             </Link>
             <Link to="/#resources" className="text-foreground hover:text-primary transition-colors">
-              Resources
+              자료실
             </Link>
           </nav>
 
@@ -59,13 +59,13 @@ const Header = () => {
             <Link to="/job-seeker-dashboard">
               <Button variant="ghost" size="sm" className="space-x-2">
                 <User className="w-4 h-4" />
-                <span>Job Seeker</span>
+                <span>구직자</span>
               </Button>
             </Link>
             <Link to="/employer-dashboard">
               <Button variant="professional" size="sm" className="space-x-2">
                 <Briefcase className="w-4 h-4" />
-                <span>Employer</span>
+                <span>채용담당자</span>
               </Button>
             </Link>
           </div>
@@ -84,28 +84,28 @@ const Header = () => {
           <div className="md:hidden py-4 border-t border-border">
             <nav className="flex flex-col space-y-4">
               <Link to="/#jobs" className="text-foreground hover:text-primary transition-colors">
-                Find Jobs
+                채용공고
               </Link>
               <Link to="/#talent" className="text-foreground hover:text-primary transition-colors">
-                Find Talent
+                인재찾기
               </Link>
               <Link to="/#companies" className="text-foreground hover:text-primary transition-colors">
-                Companies
+                기업정보
               </Link>
               <Link to="/#resources" className="text-foreground hover:text-primary transition-colors">
-                Resources
+                자료실
               </Link>
               <div className="flex flex-col space-y-2 pt-4">
                 <Link to="/job-seeker-dashboard">
                   <Button variant="ghost" size="sm" className="justify-start space-x-2 w-full">
                     <User className="w-4 h-4" />
-                    <span>Job Seeker Login</span>
+                    <span>구직자 로그인</span>
                   </Button>
                 </Link>
                 <Link to="/employer-dashboard">
                   <Button variant="professional" size="sm" className="justify-start space-x-2 w-full">
                     <Briefcase className="w-4 h-4" />
-                    <span>Employer Login</span>
+                    <span>채용담당자 로그인</span>
                   </Button>
                 </Link>
               </div>

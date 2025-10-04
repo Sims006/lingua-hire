@@ -5,46 +5,46 @@ const HowItWorks = () => {
   const jobSeekerSteps = [
     {
       icon: FileText,
-      title: "Upload Your Resume",
-      description: "Register once by uploading your resume in any of 50+ languages. Our AI extracts your skills, experience, and qualifications.",
+      title: "이력서 업로드",
+      description: "50개 이상의 언어로 이력서를 한 번 업로드하세요. AI가 귀하의 기술, 경험, 자격을 추출합니다.",
     },
     {
       icon: TrendingUp,
-      title: "AI Analysis",
-      description: "Our system analyzes your profile and automatically categorizes your skills, experience level, and job preferences.",
+      title: "AI 분석",
+      description: "시스템이 귀하의 프로필을 분석하고 기술, 경험 수준, 직무 선호도를 자동으로 분류합니다.",
     },
     {
       icon: CheckCircle,
-      title: "Auto-Match",
-      description: "You're instantly matched with relevant job postings based on keywords, skills, and experience - no manual searching needed.",
+      title: "자동 매칭",
+      description: "키워드, 기술, 경험을 기반으로 관련 채용공고와 즉시 매칭됩니다. 수동 검색이 필요 없습니다.",
     },
     {
       icon: MessageSquare,
-      title: "Get Contacted",
-      description: "Employers see your match and reach out directly. All communication is translated automatically to your language.",
+      title: "연락 받기",
+      description: "고용주가 매칭된 귀하를 확인하고 직접 연락합니다. 모든 커뮤니케이션은 자동으로 귀하의 언어로 번역됩니다.",
     },
   ];
 
   const employerSteps = [
     {
       icon: Briefcase,
-      title: "Post Your Job",
-      description: "Submit your job requirements, including skills needed, experience level, and responsibilities. Posted in your language, translated automatically.",
+      title: "채용공고 게시",
+      description: "필요한 기술, 경험 수준, 업무 책임을 포함한 채용 요구사항을 제출하세요. 귀하의 언어로 게시되며 자동으로 번역됩니다.",
     },
     {
       icon: TrendingUp,
-      title: "AI Matching",
-      description: "Our system instantly analyzes your job posting and matches it with qualified candidates based on keywords and skill compatibility.",
+      title: "AI 매칭",
+      description: "시스템이 즉시 채용공고를 분석하고 키워드 및 기술 적합성을 기반으로 적격 후보자와 매칭합니다.",
     },
     {
       icon: Users,
-      title: "Receive Matches",
-      description: "Get a curated list of matched candidates who meet your requirements - no need to browse thousands of resumes.",
+      title: "매칭 결과 수신",
+      description: "귀하의 요구사항을 충족하는 엄선된 후보자 목록을 받으세요. 수천 개의 이력서를 검색할 필요가 없습니다.",
     },
     {
       icon: CheckCircle,
-      title: "Contact & Hire",
-      description: "Review matched profiles and contact candidates directly. All communication is automatically translated to both languages.",
+      title: "연락 및 채용",
+      description: "매칭된 프로필을 검토하고 후보자에게 직접 연락하세요. 모든 커뮤니케이션은 양측 언어로 자동 번역됩니다.",
     },
   ];
 
@@ -54,10 +54,10 @@ const HowItWorks = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Automatic Matching Process
+            자동 매칭 프로세스
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Our AI does the work for you - no manual searching required
+            AI가 귀하를 대신해 작업을 수행합니다 - 수동 검색이 필요 없습니다
           </p>
         </div>
 
@@ -65,7 +65,7 @@ const HowItWorks = () => {
           {/* Job Seekers Process */}
           <div>
             <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
-              For Job Seekers
+              구직자용
             </h3>
             <div className="space-y-6">
               {jobSeekerSteps.map((step, index) => {
@@ -80,7 +80,7 @@ const HowItWorks = () => {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center space-x-2 mb-2">
-                          <span className="text-sm font-semibold text-primary">Step {index + 1}</span>
+                          <span className="text-sm font-semibold text-primary">단계 {index + 1}</span>
                           <h4 className="text-lg font-semibold text-foreground">{step.title}</h4>
                         </div>
                         <p className="text-muted-foreground">{step.description}</p>
@@ -95,7 +95,7 @@ const HowItWorks = () => {
           {/* Employers Process */}
           <div>
             <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
-              For Employers
+              채용담당자용
             </h3>
             <div className="space-y-6">
               {employerSteps.map((step, index) => {
@@ -110,7 +110,7 @@ const HowItWorks = () => {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center space-x-2 mb-2">
-                          <span className="text-sm font-semibold text-accent">Step {index + 1}</span>
+                          <span className="text-sm font-semibold text-accent">단계 {index + 1}</span>
                           <h4 className="text-lg font-semibold text-foreground">{step.title}</h4>
                         </div>
                         <p className="text-muted-foreground">{step.description}</p>

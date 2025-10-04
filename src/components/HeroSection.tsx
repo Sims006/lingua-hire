@@ -7,9 +7,9 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   const features = [
-    { icon: Zap, label: "Automatic Matching" },
-    { icon: Target, label: "Skill-Based Pairing" },
-    { icon: Globe, label: "50+ Languages" },
+    { icon: Zap, label: "자동 매칭" },
+    { icon: Target, label: "스킬 기반 매칭" },
+    { icon: Globe, label: "50개 이상 언어 지원" },
   ];
 
   return (
@@ -29,25 +29,25 @@ const HeroSection = () => {
           {/* Main Headline */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-              No More Job Hunting.
+              더 이상 구직 활동은 필요 없습니다.
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent block">
-                We Match You Automatically
+                자동으로 매칭해드립니다
               </span>
             </h1>
 
             {/* Service Explanation */}
             <div className="bg-card border border-border rounded-2xl p-8 shadow-lg mb-12 max-w-3xl mx-auto">
               <p className="text-lg text-foreground mb-4 font-medium">
-                Our AI-powered platform automatically connects job seekers with the perfect opportunities.
+                AI 기반 플랫폼이 구직자와 완벽한 기회를 자동으로 연결합니다.
               </p>
               <p className="text-muted-foreground">
-                <strong>Job Seekers:</strong> Upload your resume once. Our system analyzes your skills and experience, then automatically matches you with relevant positions across 50+ languages.
+                <strong>구직자:</strong> 이력서를 한 번만 업로드하세요. 시스템이 귀하의 기술과 경험을 분석하여 50개 이상의 언어로 관련 직무와 자동 매칭합니다.
               </p>
               <p className="text-muted-foreground mt-3">
-                <strong>Employers:</strong> Post your job requirements. We instantly match you with qualified candidates based on skills, experience, and language proficiency.
+                <strong>채용담당자:</strong> 채용 요구사항을 게시하세요. 기술, 경험, 언어 능력을 기반으로 적격 후보자와 즉시 매칭됩니다.
               </p>
               <p className="text-sm text-primary font-semibold mt-4">
-                No manual searching. No endless applications. Just smart, automated matching.
+                수동 검색 불필요. 끝없는 지원서 작성 불필요. 스마트한 자동 매칭만 있을 뿐입니다.
               </p>
             </div>
           </div>
@@ -60,9 +60,9 @@ const HeroSection = () => {
                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4">
                   <Users className="w-8 h-8 text-primary-foreground" />
                 </div>
-                <h2 className="text-2xl font-bold text-foreground mb-3">I'm a Job Seeker</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-3">구직자입니다</h2>
                 <p className="text-muted-foreground mb-6">
-                  Upload your resume and let our AI find the perfect job matches for you automatically
+                  이력서를 업로드하고 AI가 자동으로 완벽한 직무를 찾아드립니다
                 </p>
                 <Button 
                   variant="default" 
@@ -70,7 +70,7 @@ const HeroSection = () => {
                   className="w-full text-lg py-6"
                   onClick={() => navigate('/resume-builder')}
                 >
-                  Register My Resume
+                  이력서 등록하기
                 </Button>
               </div>
             </div>
@@ -81,9 +81,9 @@ const HeroSection = () => {
                 <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-4">
                   <Building className="w-8 h-8 text-accent-foreground" />
                 </div>
-                <h2 className="text-2xl font-bold text-foreground mb-3">I'm an Employer</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-3">채용담당자입니다</h2>
                 <p className="text-muted-foreground mb-6">
-                  Post your job requirements and receive matched candidates instantly
+                  채용 요구사항을 게시하고 적합한 후보자를 즉시 추천받으세요
                 </p>
                 <Button 
                   variant="professional" 
@@ -91,7 +91,7 @@ const HeroSection = () => {
                   className="w-full text-lg py-6"
                   onClick={() => navigate('/post-job')}
                 >
-                  Post a Job
+                  채용공고 등록하기
                 </Button>
               </div>
             </div>

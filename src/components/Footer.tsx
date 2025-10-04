@@ -5,43 +5,43 @@ const Footer = () => {
 
   const footerSections = [
     {
-      title: "For Job Seekers",
+      title: "구직자용",
       links: [
-        "Browse Jobs",
-        "Create Resume",
-        "Career Advice",
-        "Salary Guide",
-        "Interview Tips"
+        "채용공고 둘러보기",
+        "이력서 작성",
+        "커리어 조언",
+        "연봉 가이드",
+        "면접 팁"
       ]
     },
     {
-      title: "For Employers",
+      title: "채용담당자용",
       links: [
-        "Post Jobs",
-        "Browse Resumes",
-        "Pricing Plans",
-        "Recruitment Tools",
-        "Company Profiles"
+        "채용공고 게시",
+        "이력서 둘러보기",
+        "가격 플랜",
+        "채용 도구",
+        "기업 프로필"
       ]
     },
     {
-      title: "Global Support",
+      title: "글로벌 지원",
       links: [
-        "Help Center",
-        "Contact Support",
-        "Language Settings",
-        "Local Guidelines",
-        "Community Forum"
+        "도움말 센터",
+        "지원팀 연락",
+        "언어 설정",
+        "현지 가이드라인",
+        "커뮤니티 포럼"
       ]
     },
     {
-      title: "Company",
+      title: "회사 정보",
       links: [
-        "About Us",
-        "Careers",
-        "Press Room",
-        "Partner Program",
-        "Affiliate Program"
+        "회사 소개",
+        "채용",
+        "보도자료",
+        "파트너 프로그램",
+        "제휴 프로그램"
       ]
     }
   ];
@@ -63,11 +63,11 @@ const Footer = () => {
                 <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
                   <Globe className="w-6 h-6 text-white" />
                 </div>
-                <span className="text-xl font-bold">GlobalJobs</span>
+                <span className="text-xl font-bold">글로벌잡스</span>
               </div>
               <p className="text-primary-foreground/80 mb-6 text-sm">
-                Connecting global talent across 50+ languages. 
-                Find your dream job or hire the perfect candidate anywhere in the world.
+                50개 이상의 언어로 글로벌 인재를 연결합니다.
+                전 세계 어디서나 꿈의 직장을 찾거나 완벽한 후보자를 채용하세요.
               </p>
               
               {/* Social Links */}
@@ -110,22 +110,22 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
             {/* Language Selector */}
             <div className="flex flex-wrap gap-2 text-sm">
-              <span className="text-primary-foreground/80">Available in:</span>
+              <span className="text-primary-foreground/80">지원 언어:</span>
               {languages.slice(0, 5).map((lang, index) => (
                 <a key={index} href="#" className="text-primary-foreground/80 hover:text-white transition-colors">
                   {lang}
                 </a>
               ))}
-              <span className="text-primary-foreground/60">+ 45 more</span>
+              <span className="text-primary-foreground/60">+ 45개 언어 더보기</span>
             </div>
 
             {/* Copyright & Legal */}
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-primary-foreground/80">
-              <span>© {currentYear} GlobalJobs. All rights reserved.</span>
+              <span>© {currentYear} 글로벌잡스. All rights reserved.</span>
               <div className="flex space-x-4">
-                <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-                <a href="#" className="hover:text-white transition-colors">Cookies</a>
+                <a href="#" className="hover:text-white transition-colors">개인정보 처리방침</a>
+                <a href="#" className="hover:text-white transition-colors">이용약관</a>
+                <a href="#" className="hover:text-white transition-colors">쿠키</a>
               </div>
             </div>
           </div>
