@@ -22,18 +22,18 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/#jobs" className="text-foreground hover:text-primary transition-colors">
-              채용공고
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link to="/" className="text-foreground hover:text-primary transition-colors">
+              홈
             </Link>
-            <Link to="/#talent" className="text-foreground hover:text-primary transition-colors">
-              인재찾기
+            <Link to="/resume-builder" className="text-foreground hover:text-primary transition-colors">
+              이력서 작성
             </Link>
-            <Link to="/#companies" className="text-foreground hover:text-primary transition-colors">
-              기업정보
+            <Link to="/job-posting" className="text-foreground hover:text-primary transition-colors">
+              채용공고 등록
             </Link>
-            <Link to="/#resources" className="text-foreground hover:text-primary transition-colors">
-              자료실
+            <Link to="/chat" className="text-foreground hover:text-primary transition-colors">
+              채팅
             </Link>
           </nav>
 
@@ -83,29 +83,29 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <nav className="flex flex-col space-y-4">
-              <Link to="/#jobs" className="text-foreground hover:text-primary transition-colors">
-                채용공고
+              <Link to="/" className="text-foreground hover:text-primary transition-colors">
+                홈
               </Link>
-              <Link to="/#talent" className="text-foreground hover:text-primary transition-colors">
-                인재찾기
+              <Link to="/resume-builder" className="text-foreground hover:text-primary transition-colors">
+                이력서 작성
               </Link>
-              <Link to="/#companies" className="text-foreground hover:text-primary transition-colors">
-                기업정보
+              <Link to="/job-posting" className="text-foreground hover:text-primary transition-colors">
+                채용공고 등록
               </Link>
-              <Link to="/#resources" className="text-foreground hover:text-primary transition-colors">
-                자료실
+              <Link to="/chat" className="text-foreground hover:text-primary transition-colors">
+                채팅
               </Link>
               <div className="flex flex-col space-y-2 pt-4">
                 <Link to="/job-seeker-dashboard">
                   <Button variant="ghost" size="sm" className="justify-start space-x-2 w-full">
                     <User className="w-4 h-4" />
-                    <span>구직자 로그인</span>
+                    <span>구직자 대시보드</span>
                   </Button>
                 </Link>
                 <Link to="/employer-dashboard">
                   <Button variant="professional" size="sm" className="justify-start space-x-2 w-full">
                     <Briefcase className="w-4 h-4" />
-                    <span>채용담당자 로그인</span>
+                    <span>채용담당자 대시보드</span>
                   </Button>
                 </Link>
               </div>
