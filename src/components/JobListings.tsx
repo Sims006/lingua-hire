@@ -11,7 +11,7 @@ const JobListings = () => {
     return (
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="text-xl">Loading job opportunities...</div>
+          <div className="text-xl">채용 기회 불러오는 중...</div>
         </div>
       </section>
     );
@@ -21,7 +21,7 @@ const JobListings = () => {
     return (
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="text-xl text-destructive">Error loading jobs: {error}</div>
+          <div className="text-xl text-destructive">채용공고 로드 오류: {error}</div>
         </div>
       </section>
     );
@@ -46,11 +46,11 @@ const JobListings = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Featured Job Opportunities
+            주요 채용 기회
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Discover opportunities from companies worldwide, automatically translated 
-            and matched to your skills.
+            전 세계 기업의 기회를 발견하고, 자동으로 번역되어 
+            귀하의 기술에 매칭됩니다.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ const JobListings = () => {
                   </div>
                   <div className="flex items-center space-x-1">
                     <Users className="w-4 h-4" />
-                    <span>{job.applicants} applicants</span>
+                    <span>{job.applicants} 지원자</span>
                   </div>
                 </div>
               </CardHeader>
@@ -107,7 +107,7 @@ const JobListings = () => {
                   ))}
                   {job.isUrgent && (
                     <Badge className="bg-accent text-accent-foreground text-xs">
-                      Urgent
+                      긴급
                     </Badge>
                   )}
                 </div>
@@ -117,10 +117,10 @@ const JobListings = () => {
                   <span className="text-sm text-muted-foreground">{job.posted}</span>
                   <div className="space-x-2">
                     <Button variant="outline" size="sm">
-                      View Details
+                      자세히 보기
                     </Button>
                     <Button variant="default" size="sm">
-                      Apply Now
+                      지금 지원
                     </Button>
                   </div>
                 </div>
@@ -132,7 +132,7 @@ const JobListings = () => {
         {/* View All Jobs Button */}
         <div className="text-center">
           <Button variant="hero" size="lg" className="px-8">
-            View All Jobs ({jobs.length > 0 ? jobs.length.toLocaleString() : '0'})
+            모든 채용공고 보기 ({jobs.length > 0 ? jobs.length.toLocaleString() : '0'})
           </Button>
         </div>
       </div>

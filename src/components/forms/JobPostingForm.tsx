@@ -99,42 +99,42 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
         <Card className="max-w-4xl mx-auto p-8">
           <div className="text-center mb-8">
             <Building2 className="w-12 h-12 text-primary mx-auto mb-4" />
-            <h1 className="text-3xl font-bold text-foreground mb-2">Create Job Posting</h1>
-            <p className="text-muted-foreground">Your job will be automatically translated into 50+ languages</p>
+            <h1 className="text-3xl font-bold text-foreground mb-2">채용공고 작성</h1>
+            <p className="text-muted-foreground">귀하의 채용공고는 50개 이상의 언어로 자동 번역됩니다</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Company Information */}
             <Card className="p-6">
-              <h2 className="text-xl font-semibold text-foreground mb-4">Company Information</h2>
+              <h2 className="text-xl font-semibold text-foreground mb-4">회사 정보</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="companyName">Company Name *</Label>
+                  <Label htmlFor="companyName">회사명 *</Label>
                   <Input
                     id="companyName"
                     value={jobData.companyName}
                     onChange={(e) => updateJobData("companyName", e.target.value)}
-                    placeholder="Your Company Name"
+                    placeholder="귀사명"
                     required
                   />
                 </div>
                 <div>
-                  <Label htmlFor="country">Country *</Label>
+                  <Label htmlFor="country">국가 *</Label>
                   <Input
                     id="country"
                     value={jobData.country}
                     onChange={(e) => updateJobData("country", e.target.value)}
-                    placeholder="United States"
+                    placeholder="대한민국"
                     required
                   />
                 </div>
                 <div className="md:col-span-2">
-                  <Label htmlFor="location">Location *</Label>
+                  <Label htmlFor="location">위치 *</Label>
                   <Input
                     id="location"
                     value={jobData.location}
                     onChange={(e) => updateJobData("location", e.target.value)}
-                    placeholder="San Francisco, CA or Remote"
+                    placeholder="서울, 대한민국 또는 원격"
                     required
                   />
                 </div>
@@ -143,26 +143,26 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
 
             {/* Job Details */}
             <Card className="p-6">
-              <h2 className="text-xl font-semibold text-foreground mb-4">Job Details</h2>
+              <h2 className="text-xl font-semibold text-foreground mb-4">채용 세부사항</h2>
               <div className="space-y-4">
                 <div>
-                  <Label htmlFor="jobTitle">Job Title *</Label>
+                  <Label htmlFor="jobTitle">직무 제목 *</Label>
                   <Input
                     id="jobTitle"
                     value={jobData.jobTitle}
                     onChange={(e) => updateJobData("jobTitle", e.target.value)}
-                    placeholder="e.g., Senior Frontend Developer"
+                    placeholder="예: 시니어 프론트엔드 개발자"
                     required
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="jobDescription">Job Description *</Label>
+                  <Label htmlFor="jobDescription">직무 설명 *</Label>
                   <Textarea
                     id="jobDescription"
                     value={jobData.jobDescription}
                     onChange={(e) => updateJobData("jobDescription", e.target.value)}
-                    placeholder="Describe the role, responsibilities, and what makes this opportunity exciting..."
+                    placeholder="역할, 책임 및 이 기회의 매력적인 점을 설명하세요..."
                     rows={6}
                     required
                   />
@@ -170,10 +170,10 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
-                    <Label>Job Type *</Label>
+                    <Label>직무 유형 *</Label>
                     <Select value={jobData.jobType} onValueChange={(value) => updateJobData("jobType", value)}>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select job type" />
+                        <SelectValue placeholder="직무 유형 선택" />
                       </SelectTrigger>
                       <SelectContent>
                         {JOB_TYPES.map((type) => (
@@ -186,10 +186,10 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
                   </div>
 
                   <div>
-                    <Label>Work Type *</Label>
+                    <Label>근무 형태 *</Label>
                     <Select value={jobData.workType} onValueChange={(value) => updateJobData("workType", value)}>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select work type" />
+                        <SelectValue placeholder="근무 형태 선택" />
                       </SelectTrigger>
                       <SelectContent>
                         {WORK_TYPES.map((type) => (
@@ -202,12 +202,12 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
                   </div>
 
                   <div>
-                    <Label htmlFor="workHours">Work Hours</Label>
+                    <Label htmlFor="workHours">근무 시간</Label>
                     <Input
                       id="workHours"
                       value={jobData.workHours}
                       onChange={(e) => updateJobData("workHours", e.target.value)}
-                      placeholder="e.g., 40 hours/week"
+                      placeholder="예: 주 40시간"
                     />
                   </div>
                 </div>
@@ -216,10 +216,10 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
 
             {/* Salary & Compensation */}
             <Card className="p-6">
-              <h2 className="text-xl font-semibold text-foreground mb-4">Salary & Compensation</h2>
+              <h2 className="text-xl font-semibold text-foreground mb-4">급여 및 보상</h2>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div>
-                  <Label>Currency</Label>
+                  <Label>통화</Label>
                   <Select value={jobData.salaryCurrency} onValueChange={(value) => updateJobData("salaryCurrency", value)}>
                     <SelectTrigger>
                       <SelectValue />
@@ -234,7 +234,7 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
                   </Select>
                 </div>
                 <div>
-                  <Label htmlFor="salaryMin">Minimum Salary</Label>
+                  <Label htmlFor="salaryMin">최소 급여</Label>
                   <Input
                     id="salaryMin"
                     value={jobData.salaryMin}
@@ -244,7 +244,7 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="salaryMax">Maximum Salary</Label>
+                  <Label htmlFor="salaryMax">최대 급여</Label>
                   <Input
                     id="salaryMax"
                     value={jobData.salaryMax}
@@ -254,7 +254,7 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="numberOfHires">Number of Hires</Label>
+                  <Label htmlFor="numberOfHires">채용 인원</Label>
                   <Input
                     id="numberOfHires"
                     value={jobData.numberOfHires}
@@ -269,13 +269,13 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
 
             {/* Requirements */}
             <Card className="p-6">
-              <h2 className="text-xl font-semibold text-foreground mb-4">Requirements</h2>
+              <h2 className="text-xl font-semibold text-foreground mb-4">요구사항</h2>
               <div className="space-y-6">
                 <div>
-                  <Label>Experience Level *</Label>
+                  <Label>경험 수준 *</Label>
                   <Select value={jobData.experienceLevel} onValueChange={(value) => updateJobData("experienceLevel", value)}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select experience level" />
+                      <SelectValue placeholder="경험 수준 선택" />
                     </SelectTrigger>
                     <SelectContent>
                       {EXPERIENCE_LEVELS.map((level) => (
@@ -288,12 +288,12 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
                 </div>
 
                 <div>
-                  <Label htmlFor="qualifications">Required Qualifications</Label>
+                  <Label htmlFor="qualifications">필수 자격요건</Label>
                   <Textarea
                     id="qualifications"
                     value={jobData.qualifications}
                     onChange={(e) => updateJobData("qualifications", e.target.value)}
-                    placeholder="List required skills, certifications, degrees, or experience..."
+                    placeholder="필요한 기술, 자격증, 학위 또는 경험을 나열하세요..."
                     rows={4}
                   />
                 </div>
@@ -301,8 +301,8 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
                 <KeywordSelector
                   selectedKeywords={jobData.keywords}
                   onKeywordsChange={(keywords) => updateJobData("keywords", keywords)}
-                  title="Required Skills & Keywords"
-                  placeholder="Search for required skills and technologies..."
+                  title="필수 기술 및 키워드"
+                  placeholder="필요한 기술 및 기술을 검색하세요..."
                   maxSelections={12}
                 />
               </div>
@@ -310,19 +310,19 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
 
             {/* Language Requirements */}
             <Card className="p-6">
-              <h2 className="text-xl font-semibold text-foreground mb-4">Language Requirements</h2>
+              <h2 className="text-xl font-semibold text-foreground mb-4">언어 요구사항</h2>
               <div className="space-y-4">
                 {jobData.requiredLanguages.map((language, index) => (
                   <Card key={index} className="p-4 bg-secondary/20">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
                       <div>
-                        <Label>Language</Label>
+                        <Label>언어</Label>
                         <Select 
                           value={language.code} 
                           onValueChange={(value) => updateLanguage(index, "code", value)}
                         >
                           <SelectTrigger>
-                            <SelectValue placeholder="Select language" />
+                            <SelectValue placeholder="언어 선택" />
                           </SelectTrigger>
                           <SelectContent>
                             {LANGUAGES.map((lang) => (
@@ -334,13 +334,13 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
                         </Select>
                       </div>
                       <div>
-                        <Label>Required Level</Label>
+                        <Label>요구 수준</Label>
                         <Select 
                           value={language.level} 
                           onValueChange={(value) => updateLanguage(index, "level", value)}
                         >
                           <SelectTrigger>
-                            <SelectValue placeholder="Select level" />
+                            <SelectValue placeholder="수준 선택" />
                           </SelectTrigger>
                           <SelectContent>
                             {LANGUAGE_LEVELS.map((level) => (
@@ -356,24 +356,24 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
                         variant="outline"
                         onClick={() => removeLanguage(index)}
                       >
-                        Remove
+                        삭제
                       </Button>
                     </div>
                   </Card>
                 ))}
 
                 <Button type="button" variant="outline" onClick={addLanguage} className="w-full">
-                  Add Language Requirement
+                  언어 요구사항 추가
                 </Button>
               </div>
             </Card>
 
             {/* Closing Date */}
             <Card className="p-6">
-              <h2 className="text-xl font-semibold text-foreground mb-4">Application Deadline</h2>
+              <h2 className="text-xl font-semibold text-foreground mb-4">지원 마감일</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <Label>Closing Date</Label>
+                  <Label>마감일</Label>
                   <Popover>
                     <PopoverTrigger asChild>
                       <Button
@@ -384,7 +384,7 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
                         )}
                       >
                         <CalendarIcon className="mr-2 h-4 w-4" />
-                        {jobData.closingDate ? format(jobData.closingDate, "PPP") : "Select closing date"}
+                        {jobData.closingDate ? format(jobData.closingDate, "PPP") : "마감일 선택"}
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0" align="start">
@@ -406,16 +406,16 @@ const JobPostingForm = ({ onSubmit, onCancel }: JobPostingFormProps) => {
             <div className="flex justify-between">
               {onCancel && (
                 <Button type="button" variant="outline" onClick={onCancel}>
-                  Cancel
+                  취소
                 </Button>
               )}
               <div className="ml-auto space-x-4">
                 <Button type="button" variant="outline">
-                  Save as Draft
+                  임시 저장
                 </Button>
                 <Button type="submit" variant="hero">
                   <Check className="w-4 h-4 mr-2" />
-                  Publish Job
+                  채용공고 게시
                 </Button>
               </div>
             </div>
