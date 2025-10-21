@@ -67,27 +67,27 @@ const JobSeekerDashboard = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-foreground mb-2">Job Seeker Dashboard</h1>
-            <p className="text-muted-foreground">Manage your profile and discover global opportunities</p>
+            <h1 className="text-3xl font-bold text-foreground mb-2">구직자 대시보드</h1>
+            <p className="text-muted-foreground">프로필을 관리하고 글로벌 기회를 발견하세요</p>
           </div>
           <div className="flex gap-3 mt-4 md:mt-0">
             <Button variant="outline" size="sm">
               <Bell className="w-4 h-4 mr-2" />
-              Notifications (3)
+              알림 (3)
             </Button>
             <Button variant="hero" size="sm">
               <Edit className="w-4 h-4 mr-2" />
-              Edit Resume
+              이력서 수정
             </Button>
           </div>
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="resume">Resume</TabsTrigger>
-            <TabsTrigger value="jobs">Matched Jobs</TabsTrigger>
-            <TabsTrigger value="notifications">Notifications</TabsTrigger>
+            <TabsTrigger value="overview">개요</TabsTrigger>
+            <TabsTrigger value="resume">이력서</TabsTrigger>
+            <TabsTrigger value="jobs">매칭된 채용공고</TabsTrigger>
+            <TabsTrigger value="notifications">알림</TabsTrigger>
           </TabsList>
 
           {/* Overview Tab */}
@@ -98,7 +98,7 @@ const JobSeekerDashboard = () => {
                 <Card className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-muted-foreground">Profile Views</p>
+                      <p className="text-sm text-muted-foreground">프로필 조회수</p>
                       <p className="text-2xl font-bold text-foreground">127</p>
                     </div>
                     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
@@ -110,7 +110,7 @@ const JobSeekerDashboard = () => {
                 <Card className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-muted-foreground">Job Matches</p>
+                      <p className="text-sm text-muted-foreground">채용공고 매칭</p>
                       <p className="text-2xl font-bold text-foreground">23</p>
                     </div>
                     <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
@@ -122,7 +122,7 @@ const JobSeekerDashboard = () => {
 
               {/* Recent Notifications */}
               <Card className="p-6">
-                <h3 className="font-semibold text-foreground mb-4">Recent Activity</h3>
+                <h3 className="font-semibold text-foreground mb-4">최근 활동</h3>
                 <div className="space-y-3">
                   {notifications.slice(0, 3).map((notification) => (
                     <div key={notification.id} className="flex gap-3">
@@ -141,23 +141,23 @@ const JobSeekerDashboard = () => {
             <div className="grid md:grid-cols-3 gap-6 mt-6">
               <Card className="p-6 text-center">
                 <FileText className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold text-foreground mb-2">Update Resume</h3>
-                <p className="text-sm text-muted-foreground mb-4">Keep your profile current</p>
-                <Button variant="outline" size="sm" className="w-full">Edit Resume</Button>
+                <h3 className="font-semibold text-foreground mb-2">이력서 업데이트</h3>
+                <p className="text-sm text-muted-foreground mb-4">프로필을 최신 상태로 유지하세요</p>
+                <Button variant="outline" size="sm" className="w-full">이력서 수정</Button>
               </Card>
               
               <Card className="p-6 text-center">
                 <Search className="w-12 h-12 text-accent mx-auto mb-4" />
-                <h3 className="font-semibold text-foreground mb-2">Browse Jobs</h3>
-                <p className="text-sm text-muted-foreground mb-4">Discover new opportunities</p>
-                <Button variant="outline" size="sm" className="w-full">Search Jobs</Button>
+                <h3 className="font-semibold text-foreground mb-2">채용공고 찾기</h3>
+                <p className="text-sm text-muted-foreground mb-4">새로운 기회를 발견하세요</p>
+                <Button variant="outline" size="sm" className="w-full">채용공고 검색</Button>
               </Card>
               
               <Card className="p-6 text-center">
                 <MessageSquare className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold text-foreground mb-2">Messages</h3>
-                <p className="text-sm text-muted-foreground mb-4">Connect with employers</p>
-                <Button variant="outline" size="sm" className="w-full">View Messages</Button>
+                <h3 className="font-semibold text-foreground mb-2">메시지</h3>
+                <p className="text-sm text-muted-foreground mb-4">고용주와 연결하세요</p>
+                <Button variant="outline" size="sm" className="w-full">메시지 보기</Button>
               </Card>
             </div>
           </TabsContent>
@@ -165,55 +165,55 @@ const JobSeekerDashboard = () => {
           {/* Resume Tab */}
           <TabsContent value="resume">
             <Card className="p-8">
-              <h2 className="text-2xl font-bold text-foreground mb-6">Resume Creation Wizard</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-6">이력서 작성 마법사</h2>
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
-                  <span className="text-foreground font-medium">Profile Completion</span>
+                  <span className="text-foreground font-medium">프로필 완성도</span>
                   <span className="text-sm text-muted-foreground">75%</span>
                 </div>
                 <Progress value={75} className="w-full" />
                 
                 <div className="grid md:grid-cols-2 gap-6 mt-8">
                   <div className="space-y-4">
-                    <h3 className="font-semibold text-foreground">Basic Information</h3>
+                    <h3 className="font-semibold text-foreground">기본 정보</h3>
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-accent rounded-full" />
-                        <span className="text-sm">Personal Details ✓</span>
+                        <span className="text-sm">개인 정보 ✓</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-accent rounded-full" />
-                        <span className="text-sm">Contact Information ✓</span>
+                        <span className="text-sm">연락처 정보 ✓</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-muted rounded-full" />
-                        <span className="text-sm text-muted-foreground">Professional Summary</span>
+                        <span className="text-sm text-muted-foreground">경력 요약</span>
                       </div>
                     </div>
                   </div>
                   
                   <div className="space-y-4">
-                    <h3 className="font-semibold text-foreground">Experience & Skills</h3>
+                    <h3 className="font-semibold text-foreground">경험 및 기술</h3>
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-accent rounded-full" />
-                        <span className="text-sm">Work Experience ✓</span>
+                        <span className="text-sm">업무 경험 ✓</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-muted rounded-full" />
-                        <span className="text-sm text-muted-foreground">Skills & Certifications</span>
+                        <span className="text-sm text-muted-foreground">기술 및 자격증</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-muted rounded-full" />
-                        <span className="text-sm text-muted-foreground">Languages</span>
+                        <span className="text-sm text-muted-foreground">언어</span>
                       </div>
                     </div>
                   </div>
                 </div>
                 
                 <div className="flex gap-4 mt-8">
-                  <Button variant="hero" size="lg">Continue Building Resume</Button>
-                  <Button variant="outline" size="lg">Preview Resume</Button>
+                  <Button variant="hero" size="lg">이력서 작성 계속하기</Button>
+                  <Button variant="outline" size="lg">이력서 미리보기</Button>
                 </div>
               </div>
             </Card>
@@ -223,10 +223,10 @@ const JobSeekerDashboard = () => {
           <TabsContent value="jobs">
             <div className="space-y-6">
               <div className="flex justify-between items-center">
-                <h2 className="text-2xl font-bold text-foreground">Matched Jobs ({matchedJobs.length})</h2>
+                <h2 className="text-2xl font-bold text-foreground">매칭된 채용공고 ({matchedJobs.length})</h2>
                 <Button variant="outline">
                   <Search className="w-4 h-4 mr-2" />
-                  Search More
+                  더 찾아보기
                 </Button>
               </div>
               
@@ -265,7 +265,7 @@ const JobSeekerDashboard = () => {
                         {/* Keyword Match Display */}
                         <div className="mt-3">
                           <div className="flex flex-wrap gap-1 mb-2">
-                            <span className="text-xs text-muted-foreground">Matched:</span>
+                            <span className="text-xs text-muted-foreground">일치:</span>
                             {job.matchedKeywords.map((keyword, idx) => (
                               <Badge key={idx} variant="secondary" className="text-xs bg-green-100 text-green-700">
                                 {keyword}
@@ -273,7 +273,7 @@ const JobSeekerDashboard = () => {
                             ))}
                           </div>
                           <div className="flex flex-wrap gap-1">
-                            <span className="text-xs text-muted-foreground">Missing:</span>
+                            <span className="text-xs text-muted-foreground">부족:</span>
                             {job.requiredKeywords.filter(k => !job.matchedKeywords.includes(k)).map((keyword, idx) => (
                               <Badge key={idx} variant="outline" className="text-xs">
                                 {keyword}
@@ -288,10 +288,10 @@ const JobSeekerDashboard = () => {
                           <Heart className={`w-4 h-4 ${job.saved ? 'fill-current text-red-500' : ''}`} />
                         </Button>
                         {job.match >= 80 ? (
-                          <Button variant="hero" size="sm">Apply Now</Button>
+                          <Button variant="hero" size="sm">지원하기</Button>
                         ) : (
                           <Button variant="outline" size="sm" disabled>
-                            Low Match ({job.match}%)
+                            낮은 일치도 ({job.match}%)
                           </Button>
                         )}
                       </div>
@@ -305,7 +305,7 @@ const JobSeekerDashboard = () => {
           {/* Notifications Tab */}
           <TabsContent value="notifications">
             <Card className="p-6">
-              <h2 className="text-2xl font-bold text-foreground mb-6">Notification Center</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-6">알림 센터</h2>
               <div className="space-y-4">
                 {notifications.map((notification) => (
                   <div key={notification.id} className="flex items-start gap-4 p-4 bg-secondary/50 rounded-lg">
@@ -314,7 +314,7 @@ const JobSeekerDashboard = () => {
                       <p className="text-foreground">{notification.message}</p>
                       <p className="text-sm text-muted-foreground mt-1">{notification.time}</p>
                     </div>
-                    <Button variant="ghost" size="sm">Mark as Read</Button>
+                    <Button variant="ghost" size="sm">읽음으로 표시</Button>
                   </div>
                 ))}
               </div>

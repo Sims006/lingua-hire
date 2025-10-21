@@ -40,7 +40,7 @@ const SearchJobsForm = ({ onSearchResults, className = "" }: SearchJobsFormProps
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
           <Input
-            placeholder="Job title, skills, or company"
+            placeholder="직무명, 기술, 회사명"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="pl-10 h-12"
@@ -50,7 +50,7 @@ const SearchJobsForm = ({ onSearchResults, className = "" }: SearchJobsFormProps
         <div className="relative">
           <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
           <Input
-            placeholder="Location or remote"
+            placeholder="위치 또는 원격"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             className="pl-10 h-12"
@@ -60,19 +60,19 @@ const SearchJobsForm = ({ onSearchResults, className = "" }: SearchJobsFormProps
         <Select value={jobType} onValueChange={setJobType}>
           <SelectTrigger className="h-12">
             <Filter className="w-4 h-4 mr-2" />
-            <SelectValue placeholder="Job Type" />
+            <SelectValue placeholder="근무 형태" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All Types</SelectItem>
-            <SelectItem value="full-time">Full Time</SelectItem>
-            <SelectItem value="part-time">Part Time</SelectItem>
-            <SelectItem value="contract">Contract</SelectItem>
-            <SelectItem value="freelance">Freelance</SelectItem>
+            <SelectItem value="all">모든 형태</SelectItem>
+            <SelectItem value="full-time">정규직</SelectItem>
+            <SelectItem value="part-time">파트타임</SelectItem>
+            <SelectItem value="contract">계약직</SelectItem>
+            <SelectItem value="freelance">프리랜서</SelectItem>
           </SelectContent>
         </Select>
 
         <Button type="submit" variant="hero" size="lg" className="h-12 w-full">
-          Search Jobs
+          채용공고 검색
         </Button>
       </div>
     </form>

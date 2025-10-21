@@ -14,42 +14,42 @@ const ChatSystem = () => {
     {
       id: 1,
       participant: "Sarah Chen",
-      role: "Job Seeker",
+      role: "구직자",
       avatar: "SC",
       status: "online",
-      lastMessage: "Thank you for considering my application!",
-      time: "2 min ago",
+      lastMessage: "지원을 고려해주셔서 감사합니다!",
+      time: "2분 전",
       unread: 2,
       requestStatus: "pending",
-      jobTitle: "Senior Frontend Developer",
+      jobTitle: "시니어 프론트엔드 개발자",
       matchPercentage: 94,
       canMessage: true
     },
     {
       id: 2,
       participant: "TechCorp Global",
-      role: "Employer",
+      role: "채용담당자",
       avatar: "TC",
       status: "offline",
-      lastMessage: "We'd like to schedule an interview.",
-      time: "1 hour ago",
+      lastMessage: "면접 일정을 잡고 싶습니다.",
+      time: "1시간 전",
       unread: 0,
       requestStatus: "accepted",
-      jobTitle: "React Developer Position",
+      jobTitle: "React 개발자 포지션",
       matchPercentage: 87,
       canMessage: true
     },
     {
       id: 3,
       participant: "Marcus Johnson",
-      role: "Job Seeker",
+      role: "구직자",
       avatar: "MJ",
       status: "online",
-      lastMessage: "I'm available for the project discussion.",
-      time: "3 hours ago",
+      lastMessage: "프로젝트 논의 가능합니다.",
+      time: "3시간 전",
       unread: 1,
       requestStatus: "none",
-      jobTitle: "Full Stack Engineer",
+      jobTitle: "풀스택 엔지니어",
       matchPercentage: 65,
       canMessage: false // Low match, no messaging allowed
     }
@@ -59,29 +59,29 @@ const ChatSystem = () => {
     {
       id: 1,
       sender: "Sarah Chen",
-      content: "Hi! I'm very interested in the Senior Frontend Developer position. I have 6 years of experience with React and TypeScript.",
-      time: "10:30 AM",
+      content: "안녕하세요! 시니어 프론트엔드 개발자 포지션에 매우 관심이 있습니다. React와 TypeScript로 6년의 경력이 있습니다.",
+      time: "오전 10:30",
       isOwn: false
     },
     {
       id: 2,
-      sender: "You",
-      content: "Thanks for your interest! I'd love to learn more about your experience with large-scale applications.",
-      time: "10:35 AM",
+      sender: "나",
+      content: "관심 가져주셔서 감사합니다! 대규모 애플리케이션 경험에 대해 더 알고 싶습니다.",
+      time: "오전 10:35",
       isOwn: true
     },
     {
       id: 3,
       sender: "Sarah Chen",
-      content: "I've worked on several enterprise applications serving millions of users. Recently led a team of 4 developers on a React migration project.",
-      time: "10:37 AM",
+      content: "수백만 명의 사용자를 대상으로 하는 여러 엔터프라이즈 애플리케이션에서 일했습니다. 최근에는 React 마이그레이션 프로젝트에서 4명의 개발자 팀을 이끌었습니다.",
+      time: "오전 10:37",
       isOwn: false
     },
     {
       id: 4,
       sender: "Sarah Chen",
-      content: "Thank you for considering my application!",
-      time: "10:40 AM",
+      content: "지원을 고려해주셔서 감사합니다!",
+      time: "오전 10:40",
       isOwn: false
     }
   ];
@@ -109,8 +109,8 @@ const ChatSystem = () => {
           {/* Conversations List */}
           <div className="lg:w-1/3 space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-foreground">Messages</h2>
-              <Badge variant="secondary">{conversations.filter(c => c.unread > 0).length} unread</Badge>
+              <h2 className="text-2xl font-bold text-foreground">메시지</h2>
+              <Badge variant="secondary">{conversations.filter(c => c.unread > 0).length} 읽지 않음</Badge>
             </div>
 
             <div className="space-y-2 overflow-y-auto max-h-[600px]">
@@ -148,7 +148,7 @@ const ChatSystem = () => {
                       </div>
                       
                       <p className="text-sm text-muted-foreground mb-1">
-                        {conversation.jobTitle} • {conversation.matchPercentage}% Match
+                        {conversation.jobTitle} • {conversation.matchPercentage}% 일치
                       </p>
                       <p className="text-sm text-muted-foreground truncate">{conversation.lastMessage}</p>
                       
@@ -158,11 +158,11 @@ const ChatSystem = () => {
                           variant={conversation.matchPercentage >= 80 ? "secondary" : "outline"} 
                           className={`text-xs ${conversation.matchPercentage >= 80 ? 'bg-green-100 text-green-700' : ''}`}
                         >
-                          {conversation.matchPercentage}% Match
+                          {conversation.matchPercentage}% 일치
                         </Badge>
                         {!conversation.canMessage && (
                           <Badge variant="destructive" className="text-xs">
-                            Low Match - No Messaging
+                            낮은 일치도 - 메시징 불가
                           </Badge>
                         )}
                       </div>
@@ -180,7 +180,7 @@ const ChatSystem = () => {
                             }}
                           >
                             <CheckCircle className="w-3 h-3 mr-1" />
-                            Accept
+                            수락
                           </Button>
                           <Button
                             size="sm"
@@ -192,7 +192,7 @@ const ChatSystem = () => {
                             }}
                           >
                             <XCircle className="w-3 h-3 mr-1" />
-                            Decline
+                            거절
                           </Button>
                         </div>
                       )}
@@ -200,7 +200,7 @@ const ChatSystem = () => {
                       {conversation.requestStatus === "accepted" && (
                         <Badge variant="secondary" className="mt-2 text-xs bg-green-50 text-green-700">
                           <CheckCircle className="w-3 h-3 mr-1" />
-                          Connected
+                          연결됨
                         </Badge>
                       )}
                     </div>
@@ -270,7 +270,7 @@ const ChatSystem = () => {
                   {activeConversation && activeConversation.canMessage ? (
                     <div className="flex gap-2">
                       <Textarea
-                        placeholder="Type your message..."
+                        placeholder="메시지를 입력하세요..."
                         value={newMessage}
                         onChange={(e) => setNewMessage(e.target.value)}
                         onKeyPress={(e) => {
@@ -295,8 +295,8 @@ const ChatSystem = () => {
                       <MessageSquare className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
                       <p className="text-sm text-muted-foreground">
                         {activeConversation?.matchPercentage && activeConversation.matchPercentage < 80 
-                          ? `Match too low (${activeConversation.matchPercentage}%) - Messaging not available`
-                          : 'Messaging not available'
+                          ? `일치도가 낮음 (${activeConversation.matchPercentage}%) - 메시징 불가`
+                          : '메시징 불가'
                         }
                       </p>
                     </div>
@@ -307,8 +307,8 @@ const ChatSystem = () => {
               <Card className="flex-1 flex items-center justify-center">
                 <div className="text-center">
                   <MessageSquare className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-foreground mb-2">Select a Conversation</h3>
-                  <p className="text-muted-foreground">Choose a conversation from the list to start chatting</p>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">대화 선택</h3>
+                  <p className="text-muted-foreground">목록에서 대화를 선택하여 채팅을 시작하세요</p>
                 </div>
               </Card>
             )}

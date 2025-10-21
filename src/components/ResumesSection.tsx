@@ -65,11 +65,10 @@ const ResumesSection = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Featured Global Talent
+            주요 글로벌 인재
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Connect with top professionals from around the world. All profiles 
-            automatically translated and verified.
+            전 세계 최고의 전문가들과 연결하세요. 모든 프로필이 자동으로 번역되고 검증됩니다.
           </p>
         </div>
 
@@ -96,7 +95,7 @@ const ResumesSection = () => {
                       <span className="font-semibold">{person.rating}</span>
                     </div>
                     <div className="text-xs text-muted-foreground">
-                      {person.completedProjects} projects
+                      {person.completedProjects} 프로젝트
                     </div>
                   </div>
                 </div>
@@ -109,7 +108,7 @@ const ResumesSection = () => {
                   </div>
                   <div className="flex items-center space-x-1">
                     <Clock className="w-4 h-4" />
-                    <span>{person.experience} exp</span>
+                    <span>{person.experience} 경력</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <Award className="w-4 h-4" />
@@ -119,7 +118,7 @@ const ResumesSection = () => {
 
                 {/* Languages */}
                 <div className="text-xs text-muted-foreground mb-2">
-                  <span className="font-medium">Languages: </span>
+                  <span className="font-medium">언어: </span>
                   {person.languages.join(", ")}
                 </div>
               </CardHeader>
@@ -134,7 +133,7 @@ const ResumesSection = () => {
                   ))}
                   {person.isAvailable && (
                     <Badge className="bg-accent text-accent-foreground text-xs">
-                      Available Now
+                      지금 가능
                     </Badge>
                   )}
                 </div>
@@ -142,15 +141,15 @@ const ResumesSection = () => {
                 {/* Actions */}
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">
-                    Response time: 2-4 hours
+                    응답 시간: 2-4시간
                   </span>
                   <div className="space-x-2">
                     <Button variant="outline" size="sm">
                       <MessageCircle className="w-4 h-4 mr-1" />
-                      Message
+                      메시지
                     </Button>
                     <Button variant="default" size="sm">
-                      Hire Now
+                      채용하기
                     </Button>
                   </div>
                 </div>
@@ -162,7 +161,7 @@ const ResumesSection = () => {
         {/* View All Talent Button */}
         <div className="text-center">
           <Button variant="professional" size="lg" className="px-8">
-            Browse All Talent ({(Math.random() * 100000 + 50000).toFixed(0).toLocaleString()})
+            모든 인재 찾아보기 ({(Math.random() * 100000 + 50000).toFixed(0).toLocaleString()})
           </Button>
         </div>
       </div>

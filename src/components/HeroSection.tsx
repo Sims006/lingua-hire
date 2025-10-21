@@ -14,15 +14,6 @@ const HeroSection = () => {
 
   return (
     <section className="relative pt-20 pb-16 bg-gradient-to-br from-background to-secondary/30 overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 opacity-10">
-        <img
-          src={heroImage}
-          alt="Global recruitment platform"
-          className="w-full h-full object-cover"
-        />
-      </div>
-
       {/* Content */}
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
