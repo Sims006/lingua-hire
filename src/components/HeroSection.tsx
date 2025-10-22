@@ -80,7 +80,7 @@ const HeroSection = () => {
                   variant="professional" 
                   size="lg" 
                   className="w-full text-lg py-6"
-                  onClick={() => navigate('/post-job')}
+                  onClick={() => navigate('/job-posting')}
                 >
                   채용공고 등록하기
                 </Button>
